@@ -1,9 +1,13 @@
-{
+/*{
     "rewrites": [
       {
         "source": "/tiktokcpViMunElROtsKx9S3tEBYcq318MM0Gp.txt",
         "destination": "/client/tiktokcpViMunElROtsKx9S3tEBYcq318MM0Gp.txt"
       }
     ]
-  }
-  
+  }*/
+{
+  "rewrites": [
+    { "source": "/auth/tiktok/callback", "destination": "/api/auth/tiktok" }
+  ]
+}
