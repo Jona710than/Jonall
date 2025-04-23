@@ -1,14 +1,6 @@
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
-require('dotenv').config();
+import axios from 'axios';
 
-const app = express();
-const PORT = process.env.PORT || 5000;
-
-app.use(cors());
-
-app.get('/auth/tiktok/callback', async (req, res) => {
+export default async function handler(req, res) {
   const code = req.query.code;
   if (!code) return res.send('Authorization code missing');
 
@@ -17,7 +9,7 @@ app.get('/auth/tiktok/callback', async (req, res) => {
       params: {
         client_key: process.env.CLIENT_KEY,
         client_secret: process.env.CLIENT_SECRET,
-        code: code,
+        code,
         grant_type: 'authorization_code',
         redirect_uri: process.env.REDIRECT_URI
       },
@@ -35,8 +27,4 @@ app.get('/auth/tiktok/callback', async (req, res) => {
     console.error(err.response?.data || err.message);
     res.status(500).send('Failed to exchange token');
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+}
