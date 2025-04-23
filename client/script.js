@@ -1,1 +1,1 @@
-// Future TikTok API logic
+// Placeholder for future TikTok clone frontend logic

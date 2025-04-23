@@ -1,4 +1,3 @@
-
 {
   "rewrites": [
     { "source": "/auth/tiktok/callback", "destination": "/api/auth/tiktok" }
